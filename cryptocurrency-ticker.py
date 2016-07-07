@@ -8,7 +8,6 @@ def parse():
     bitcoin = Bitcoin()
     ethereum = Ethereum()
     monero = Monero()
-    #siacoin = Siacoin()
     file_write(bitcoin, ethereum, monero)
 
 def Bitcoin():
@@ -31,14 +30,6 @@ def Monero():
     jsn_dict = r.json()
     price = jsn_dict['usd']
     return price
-
-# siacoin has not yet been aadded to the api
-#def Siacoin():  
-#    price_url = "http://coinmarketcap-nexuist.rhcloud.com/api/sia/price"
-#    r = requests.get(price_url)
-#    jsn_dict = r.json()
-#    price = jsn_dict['usd']
-#    print price
 
 def file_write(bitcoin, ethereum, monero):
     file = open("/home/jacob/Code/Python/prices.txt", 'w')
