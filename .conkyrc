@@ -36,7 +36,7 @@ show_graph_range no
 
 
 TEXT
-${exec cat /home/jacob/Code/Python/prices.txt}
+${exec cat $(eval echo ~${SUDO_USER})/cryptocurrency-ticker-master/prices.txt}
 
 
 
