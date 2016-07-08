@@ -13,6 +13,8 @@ echo "*/5 * * * * ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticke
 crontab mycron
 rm mycron       
 
+${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py
+
 conky </dev/null &>/dev/null &
 
 echo done
