@@ -9,6 +9,6 @@ Download the ZIP and extract to your home directory(DO NOT CHANGE THE NAME OF TH
 
 Give executable permissions to the install.sh script located within the extracted directory.
 
-Run install.sh from the command line.
+Run install.sh from the command line. (WARNING: THIS WILL OVERWRITE ANY PREVIOUS .conkyrc FILE)
 
 To adjust the location, edit the alignment, gap_x, and gap_y variables within .conkyrc located within you home directory. See http://conky.sourceforge.net/variables.html for help.
