@@ -11,6 +11,6 @@ echo "*/5 * * * * ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticke
 crontab mycron
 rm mycron       
 
-nohup conky &
+conky </dev/null &>/dev/null &
 
 echo done
