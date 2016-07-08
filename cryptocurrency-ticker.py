@@ -38,7 +38,6 @@ def Ethereum():
     info.append(volume)
     return info
 
-    return price
 
 def Monero():
     info = []
