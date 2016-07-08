@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 
 import requests
-from bs4 import BeautifulSoup
 import json
 
 def parse():
