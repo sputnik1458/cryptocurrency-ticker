@@ -32,7 +32,7 @@ def Monero():
     return price
 
 def file_write(bitcoin, ethereum, monero):
-    file = open("/home/jacob/Code/Python/prices.txt", 'w')
+    file = open("prices.txt", 'w')
     file.write("\nBitcoin:$%.2f\n" % bitcoin)
     file.write("Ethereum: $%.2f\n" % ethereum)
     file.write("Monero: $%.2f" % monero)
