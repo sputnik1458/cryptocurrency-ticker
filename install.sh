@@ -6,6 +6,8 @@ cp -r ${USER_HOME}/cryptocurrency-ticker-master/.conkyrc ${USER_HOME}
 
 chmod +x ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py
 
+touch ${USER_HOME}/cryptocurrency-ticker-master/prices.txt
+
 crontab -l > mycron
 echo "*/5 * * * * ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py" >> mycron
 crontab mycron
