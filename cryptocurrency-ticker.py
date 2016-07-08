@@ -11,31 +11,60 @@ def parse():
     file_write(bitcoin, ethereum, monero)
 
 def Bitcoin():
+    info = []
     price_url = "http://coinmarketcap-nexuist.rhcloud.com/api/btc/price"
     r = requests.get(price_url)
     jsn_dict = r.json()
     price = jsn_dict['usd']
-    return price
+    info.append(price)
+    volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/btc/volume"
+    t = requests.get(volume_url)
+    jsn_dict2 = t.json()
+    volume = jsn_dict2['usd']
+    info.append(volume)
+    return info
 
 def Ethereum():
+    info = []
     price_url = "http://coinmarketcap-nexuist.rhcloud.com/api/eth/price"
     r = requests.get(price_url)
     jsn_dict = r.json()
     price = jsn_dict['usd']
+    volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/eth/volume"
+    info.append(price)
+    t = requests.get(volume_url)
+    jsn_dict2 = t.json()
+    volume = jsn_dict2['usd']
+    info.append(volume)
+    return info
+
     return price
 
 def Monero():
+    info = []
     price_url = "http://coinmarketcap-nexuist.rhcloud.com/api/xmr/price"
     r = requests.get(price_url)
     jsn_dict = r.json()
     price = jsn_dict['usd']
-    return price
+    volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/xmr/volume"
+    info.append(price)
+    t = requests.get(volume_url)
+    jsn_dict2 = t.json()
+    volume = jsn_dict2['usd']
+    info.append(volume)
+    return info
 
 def file_write(bitcoin, ethereum, monero):
-    file = open("prices.txt", 'w')
-    file.write("\nBitcoin: $%.2f\n" % bitcoin)
-    file.write("Ethereum: $%.2f\n" % ethereum)
-    file.write("Monero: $%.2f" % monero)
+    bitprice = bitcoin[0]
+    bitvolume = bitcoin[1]
+    ethprice = ethereum[0]
+    ethvolume = ethereum[1]
+    xmrprice = monero[0]
+    xmrvolume = monero[1]
+    file = open("/home/jacob/Code/Python/prices.txt", 'w')
+    file.write("\nBitcoin: \n Price: $%.2f \n 24h Volume: $%d\n" % (bitprice, bitvolume))
+    file.write("Ethereum: \n Price: $%.2f\n 24h Volume: $%d\n" % (ethprice, ethvolume))
+    file.write("Monero: \n Price: $%.2f\n 24h Volume: $%d" % (xmrprice, xmrvolume))
     file.close
 
 parse()
