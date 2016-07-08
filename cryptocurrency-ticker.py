@@ -60,7 +60,7 @@ def file_write(bitcoin, ethereum, monero):
     ethvolume = ethereum[1]
     xmrprice = monero[0]
     xmrvolume = monero[1]
-    file = open("/home/jacob/Code/Python/prices.txt", 'w')
+    file = open("prices.txt", 'w')
     file.write("\nBitcoin: \n Price: $%.2f \n 24h Volume: $%d\n" % (bitprice, bitvolume))
     file.write("Ethereum: \n Price: $%.2f\n 24h Volume: $%d\n" % (ethprice, ethvolume))
     file.write("Monero: \n Price: $%.2f\n 24h Volume: $%d" % (xmrprice, xmrvolume))
