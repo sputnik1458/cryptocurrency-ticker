@@ -16,16 +16,14 @@ def Bitcoin():
     r = requests.get(price_url)
     jsn_dict = r.json()
     price = jsn_dict['usd']
-    info.append(price)
     volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/btc/volume"
     t = requests.get(volume_url)
     jsn_dict2 = t.json()
     volume = jsn_dict2['usd']
-    info.append(volume)
     change_url = "http://coinmarketcap-nexuist.rhcloud.com/api/btc/change"
     e = requests.get(change_url)
     change = e.json()
-    info.append(change)
+    info.extend((price, volume, change))
     return info
 
 def Ethereum():
@@ -35,15 +33,13 @@ def Ethereum():
     jsn_dict = r.json()
     price = jsn_dict['usd']
     volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/eth/volume"
-    info.append(price)
     t = requests.get(volume_url)
     jsn_dict2 = t.json()
     volume = jsn_dict2['usd']
-    info.append(volume)
     change_url = "http://coinmarketcap-nexuist.rhcloud.com/api/eth/change"
     e = requests.get(change_url)
     change = e.json()
-    info.append(change)
+    info.extend((price, volume, change))
     return info
 
 def Monero():
@@ -53,15 +49,13 @@ def Monero():
     jsn_dict = r.json()
     price = jsn_dict['usd']
     volume_url = "http://coinmarketcap-nexuist.rhcloud.com/api/xmr/volume"
-    info.append(price)
     t = requests.get(volume_url)
     jsn_dict2 = t.json()
     volume = jsn_dict2['usd']
-    info.append(volume)
     change_url = "http://coinmarketcap-nexuist.rhcloud.com/api/xmr/change"
     e = requests.get(change_url)
     change = e.json()
-    info.append(change)
+    info.extend((price, volume, change))
     return info
 
 def file_write(bitcoin, ethereum, monero):
