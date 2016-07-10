@@ -1,4 +1,4 @@
-alignment top_left
+alignment top_right
 background no
 border_width 1
 cpu_avg_samples 2
@@ -13,8 +13,8 @@ double_buffer yes
 use_xft yes
 xftfont DejaVu Sans Mono:size=12
 xftalpha 0.2
-gap_x 5
-gap_y 500
+gap_x 50
+gap_y 100
 minimum_size 5 5
 net_avg_samples 2
 no_buffers yes
@@ -36,7 +36,8 @@ show_graph_range no
 
 
 TEXT
-${exec cat $(eval echo ~${SUDO_USER})/cryptocurrency-ticker-master/prices.txt}
+${exec cat $(eval echo ~${SUDO_USER})/prices.txt}
+
 
 
 
