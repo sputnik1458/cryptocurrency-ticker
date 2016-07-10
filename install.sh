@@ -2,19 +2,22 @@
 
 USER_HOME=$(eval echo ~${SUDO_USER})
 
-cp -r ${USER_HOME}/cryptocurrency-ticker-master/.conkyrc ${USER_HOME}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-chmod +x ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py
+cp -r ${DIR}/.conkyrc ${USER_HOME}
 
-touch ${USER_HOME}/cryptocurrency-ticker-master/prices.txt
+chmod +x ${DIR}/crypto-tickerv2.py
+
+touch $USER_HOME/prices.txt
 
 crontab -l > mycron
-echo "*/5 * * * * ${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py" >> mycron
+echo "*/5 * * * * ${DIR}/crypto-tickerv2.py" >> mycron
 crontab mycron
-rm mycron       
+rm mycron
 
-${USER_HOME}/cryptocurrency-ticker-master/cryptocurrency-ticker.py
+${DIR}/crypto-tickerv2.py 
 
+pkill conky
 conky </dev/null &>/dev/null &
 
 echo done
