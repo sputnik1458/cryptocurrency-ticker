@@ -1,8 +1,9 @@
 #! /usr/bin/env python
 
-import requests
-from bs4 import BeautifulSoup
-import json
+import requests, json
+from os.path import expanduser
+
+home = expanduser('~')
 
 def parse():
     bitcoin = Bitcoin()
@@ -68,7 +69,7 @@ def file_write(bitcoin, ethereum, monero):
     xmrprice = monero[0]
     xmrvolume = monero[1]
     xmrchange = monero[2]
-    file = open("prices.txt", 'w')
+    file = open("%s/prices.txt" % home, 'w')
     file.write("\nBitcoin: \n Price: $%.2f \n 24h Volume: $%s\n 24h Change: %s%% \n" % (bitprice, format(bitvolume, ','), bitchange))
     file.write("Ethereum: \n Price: $%.2f\n 24h Volume: $%s\n 24h Change: %s%% \n" % (ethprice, format(ethvolume, ','), ethchange))
     file.write("Monero: \n Price: $%.2f\n 24h Volume: $%s\n 24h Change: %s%%" % (xmrprice, format(xmrvolume, ','), xmrchange))
